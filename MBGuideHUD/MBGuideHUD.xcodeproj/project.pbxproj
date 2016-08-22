@@ -13,6 +13,9 @@
 		877C9C081D6AEDDC00B7600B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877C9C061D6AEDDC00B7600B /* Main.storyboard */; };
 		877C9C0A1D6AEDDC00B7600B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877C9C091D6AEDDC00B7600B /* Assets.xcassets */; };
 		877C9C0D1D6AEDDC00B7600B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877C9C0B1D6AEDDC00B7600B /* LaunchScreen.storyboard */; };
+		877C9C1B1D6AF28500B7600B /* LZSGuideHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C161D6AF28500B7600B /* LZSGuideHUD.m */; };
+		877C9C1C1D6AF28500B7600B /* MBGuideHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C181D6AF28500B7600B /* MBGuideHUD.m */; };
+		877C9C1D1D6AF28500B7600B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C1A1D6AF28500B7600B /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		877C9C091D6AEDDC00B7600B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		877C9C0C1D6AEDDC00B7600B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877C9C0E1D6AEDDC00B7600B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		877C9C151D6AF28500B7600B /* LZSGuideHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSGuideHUD.h; sourceTree = "<group>"; };
+		877C9C161D6AF28500B7600B /* LZSGuideHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSGuideHUD.m; sourceTree = "<group>"; };
+		877C9C171D6AF28500B7600B /* MBGuideHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGuideHUD.h; sourceTree = "<group>"; };
+		877C9C181D6AF28500B7600B /* MBGuideHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideHUD.m; sourceTree = "<group>"; };
+		877C9C191D6AF28500B7600B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		877C9C1A1D6AF28500B7600B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 		877C9BFC1D6AEDDC00B7600B /* MBGuideHUD */ = {
 			isa = PBXGroup;
 			children = (
+				877C9C141D6AF28500B7600B /* MBGuideView */,
 				877C9C001D6AEDDC00B7600B /* AppDelegate.h */,
 				877C9C011D6AEDDC00B7600B /* AppDelegate.m */,
 				877C9C031D6AEDDC00B7600B /* ViewController.h */,
@@ -77,6 +87,19 @@
 				877C9BFE1D6AEDDC00B7600B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		877C9C141D6AF28500B7600B /* MBGuideView */ = {
+			isa = PBXGroup;
+			children = (
+				877C9C151D6AF28500B7600B /* LZSGuideHUD.h */,
+				877C9C161D6AF28500B7600B /* LZSGuideHUD.m */,
+				877C9C171D6AF28500B7600B /* MBGuideHUD.h */,
+				877C9C181D6AF28500B7600B /* MBGuideHUD.m */,
+				877C9C191D6AF28500B7600B /* UIView+Frame.h */,
+				877C9C1A1D6AF28500B7600B /* UIView+Frame.m */,
+			);
+			path = MBGuideView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877C9C1D1D6AF28500B7600B /* UIView+Frame.m in Sources */,
+				877C9C1B1D6AF28500B7600B /* LZSGuideHUD.m in Sources */,
 				877C9C051D6AEDDC00B7600B /* ViewController.m in Sources */,
+				877C9C1C1D6AF28500B7600B /* MBGuideHUD.m in Sources */,
 				877C9C021D6AEDDC00B7600B /* AppDelegate.m in Sources */,
 				877C9BFF1D6AEDDC00B7600B /* main.m in Sources */,
 			);
@@ -300,6 +326,7 @@
 				877C9C131D6AEDDC00B7600B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
