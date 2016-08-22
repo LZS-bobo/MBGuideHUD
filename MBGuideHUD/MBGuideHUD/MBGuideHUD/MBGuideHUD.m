@@ -113,6 +113,7 @@
 - (void)updateForBackgroundStyle {
     
     MBGuideHUDBackgroundStyle style = self.style;
+    self.backgroundColor = [UIColor clearColor];
     if (style == MBGuideHUDBackgroundStyleBlur) {
         [self.backgroundView removeFromSuperview];
         if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_8_0) {
@@ -164,6 +165,44 @@
     _style = style;
     [self updateForBackgroundStyle];
     [self setNeedsLayout];
+}
+
+- (void)setAlpha:(CGFloat)alpha
+{
+    _alpha = alpha;
+    self.backgroundView.alpha = alpha;
+}
+
+- (void)setOval:(BOOL)oval
+{
+    _oval = oval;
+    [self setNeedsDisplay];
+}
+
+- (void)setMargin:(CGFloat)margin
+{
+    _margin = margin;
+    [self setNeedsDisplay];
+}
+- (void)setEdgeInsets:(UIEdgeInsets)edgeInsets
+{
+    _edgeInsets = edgeInsets;
+    [self setNeedsDisplay];
+}
+- (void)setCornerRadius:(CGFloat)cornerRadius
+{
+    _cornerRadius = cornerRadius;
+    [self setNeedsDisplay];
+}
+- (void)setLineWidth:(CGFloat)lineWidth
+{
+    _lineWidth = lineWidth;
+    [self setNeedsDisplay];
+}
+- (void)setLineColor:(UIColor *)lineColor
+{
+    _lineColor = lineColor;
+    [self setNeedsDisplay];
 }
 
 - (void)setBlurStyle:(MBGuideHUDBlurStyle)blurStyle
@@ -226,14 +265,13 @@
     //坐标系转换
     CGRect frame = [_visibleView.superview convertRect:visibleFrame toView:self];
     
-    
     if (self.style == MBGuideHUDBackgroundStyleBlur) {
         
-        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin - self.lineWidth, frame.origin.y + self.edgeInsets.top - self.margin - self.lineWidth, frame.size.width - self.edgeInsets.right + 2 * self.margin + 2 * self.lineWidth, frame.size.height - self.edgeInsets.bottom + 2 * self.margin + 2 * self.lineWidth);
+        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin - self.lineWidth, frame.origin.y + self.edgeInsets.top - self.margin - self.lineWidth, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin + 2 * self.lineWidth, frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin + 2 * self.lineWidth);
         
     } else {
         
-        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin, frame.origin.y + self.edgeInsets.top - self.margin, frame.size.width - self.edgeInsets.right + 2 * self.margin , frame.size.height - self.edgeInsets.bottom + 2 * self.margin);
+        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin, frame.origin.y + self.edgeInsets.top - self.margin, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin , frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin);
     }
     
     UIBezierPath *clearPath = nil;
@@ -247,7 +285,8 @@
         clearPath = [self.lightPath bezierPathByReversingPath];
     }
     [path appendPath:clearPath];
-    
+    self.lightPath.lineJoinStyle = kCGLineJoinRound;
+    self.lightPath.lineCapStyle = kCGLineCapRound;
     self.lightPath.lineWidth = self.lineWidth * 2;
     [self.lineColor set];
     [self.lightPath stroke];
@@ -260,7 +299,6 @@
         self.layer.mask = self.shapeLayer;
     }
     self.shapeLayer.path = path.CGPath;
-    
     
     
 }

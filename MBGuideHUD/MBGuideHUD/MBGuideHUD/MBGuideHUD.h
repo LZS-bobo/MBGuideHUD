@@ -58,6 +58,8 @@ typedef void (^MBGuideHUDClickBlock)();
 @property (nonatomic, assign) MBGuideHUDBlurStyle blurStyle;
 ///自定义毛玻璃颜色，使用blurColor,blurStyle失效(ios 8+)
 @property (nonatomic, strong) UIColor *blurColor;
+///透明度
+@property (nonatomic, assign) CGFloat alpha;
 
 //自定义UI
 - (void)prepare;

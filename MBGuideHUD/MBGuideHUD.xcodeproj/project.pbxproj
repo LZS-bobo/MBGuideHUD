@@ -67,11 +67,10 @@
 		877C9BFC1D6AEDDC00B7600B /* MBGuideHUD */ = {
 			isa = PBXGroup;
 			children = (
+				877C9C281D6B09B900B7600B /* MBGuideHUDDeom */,
 				877C9C1E1D6AF33F00B7600B /* MBGuideHUD */,
 				877C9C001D6AEDDC00B7600B /* AppDelegate.h */,
 				877C9C011D6AEDDC00B7600B /* AppDelegate.m */,
-				877C9C031D6AEDDC00B7600B /* ViewController.h */,
-				877C9C041D6AEDDC00B7600B /* ViewController.m */,
 				877C9C061D6AEDDC00B7600B /* Main.storyboard */,
 				877C9C091D6AEDDC00B7600B /* Assets.xcassets */,
 				877C9C0B1D6AEDDC00B7600B /* LaunchScreen.storyboard */,
@@ -100,6 +99,15 @@
 				877C9C241D6AF33F00B7600B /* UIView+Frame.m */,
 			);
 			path = MBGuideHUD;
+			sourceTree = "<group>";
+		};
+		877C9C281D6B09B900B7600B /* MBGuideHUDDeom */ = {
+			isa = PBXGroup;
+			children = (
+				877C9C031D6AEDDC00B7600B /* ViewController.h */,
+				877C9C041D6AEDDC00B7600B /* ViewController.m */,
+			);
+			name = MBGuideHUDDeom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
