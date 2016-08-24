@@ -16,6 +16,10 @@
 		877C9C251D6AF33F00B7600B /* LZSGuideHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C201D6AF33F00B7600B /* LZSGuideHUD.m */; };
 		877C9C261D6AF33F00B7600B /* MBGuideHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C221D6AF33F00B7600B /* MBGuideHUD.m */; };
 		877C9C271D6AF33F00B7600B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C241D6AF33F00B7600B /* UIView+Frame.m */; };
+		877C9C2E1D6D73FB00B7600B /* MBGuideHUD+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C2D1D6D73FB00B7600B /* MBGuideHUD+Factory.m */; };
+		877C9C311D6D78CE00B7600B /* MiddleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C301D6D78CE00B7600B /* MiddleViewController.m */; };
+		877C9C341D6D93AB00B7600B /* MBGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C331D6D93AB00B7600B /* MBGuideView.m */; };
+		877C9C361D6D93BA00B7600B /* MBGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877C9C351D6D93BA00B7600B /* MBGuideView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,13 @@
 		877C9C221D6AF33F00B7600B /* MBGuideHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideHUD.m; sourceTree = "<group>"; };
 		877C9C231D6AF33F00B7600B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		877C9C241D6AF33F00B7600B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		877C9C2C1D6D73FB00B7600B /* MBGuideHUD+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBGuideHUD+Factory.h"; path = "MBGuideHUD/MBGuideHUD+Factory.h"; sourceTree = "<group>"; };
+		877C9C2D1D6D73FB00B7600B /* MBGuideHUD+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBGuideHUD+Factory.m"; path = "MBGuideHUD/MBGuideHUD+Factory.m"; sourceTree = "<group>"; };
+		877C9C2F1D6D78CE00B7600B /* MiddleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleViewController.h; sourceTree = "<group>"; };
+		877C9C301D6D78CE00B7600B /* MiddleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleViewController.m; sourceTree = "<group>"; };
+		877C9C321D6D93AB00B7600B /* MBGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGuideView.h; sourceTree = "<group>"; };
+		877C9C331D6D93AB00B7600B /* MBGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGuideView.m; sourceTree = "<group>"; };
+		877C9C351D6D93BA00B7600B /* MBGuideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBGuideView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +117,13 @@
 			children = (
 				877C9C031D6AEDDC00B7600B /* ViewController.h */,
 				877C9C041D6AEDDC00B7600B /* ViewController.m */,
+				877C9C2F1D6D78CE00B7600B /* MiddleViewController.h */,
+				877C9C301D6D78CE00B7600B /* MiddleViewController.m */,
+				877C9C2C1D6D73FB00B7600B /* MBGuideHUD+Factory.h */,
+				877C9C2D1D6D73FB00B7600B /* MBGuideHUD+Factory.m */,
+				877C9C321D6D93AB00B7600B /* MBGuideView.h */,
+				877C9C331D6D93AB00B7600B /* MBGuideView.m */,
+				877C9C351D6D93BA00B7600B /* MBGuideView.xib */,
 			);
 			name = MBGuideHUDDeom;
 			sourceTree = "<group>";
@@ -167,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877C9C361D6D93BA00B7600B /* MBGuideView.xib in Resources */,
 				877C9C0D1D6AEDDC00B7600B /* LaunchScreen.storyboard in Resources */,
 				877C9C0A1D6AEDDC00B7600B /* Assets.xcassets in Resources */,
 				877C9C081D6AEDDC00B7600B /* Main.storyboard in Resources */,
@@ -182,10 +201,13 @@
 			files = (
 				877C9C271D6AF33F00B7600B /* UIView+Frame.m in Sources */,
 				877C9C251D6AF33F00B7600B /* LZSGuideHUD.m in Sources */,
+				877C9C341D6D93AB00B7600B /* MBGuideView.m in Sources */,
+				877C9C2E1D6D73FB00B7600B /* MBGuideHUD+Factory.m in Sources */,
 				877C9C051D6AEDDC00B7600B /* ViewController.m in Sources */,
 				877C9C261D6AF33F00B7600B /* MBGuideHUD.m in Sources */,
 				877C9C021D6AEDDC00B7600B /* AppDelegate.m in Sources */,
 				877C9BFF1D6AEDDC00B7600B /* main.m in Sources */,
+				877C9C311D6D78CE00B7600B /* MiddleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

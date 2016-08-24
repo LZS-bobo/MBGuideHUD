@@ -31,20 +31,20 @@
     self.views = @[_topImageView,_middle1,_middle2,_middle3,_search];
     
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+    
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     MBGuideHUD *hud = [MBGuideHUD showHUDAddedTo:self.tabBarController.view visibleView:self.middle2 animated:NO];
     hud.edgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
     hud.margin = 0;
     hud.delegate = self;
     hud.style = MBGuideHUDBackgroundStyleSolidColor;
-
+    
     self.hud = hud;
     self.hud.alpha = 1;
     self.hud.userInteractionEnabled = YES;
-}
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
 }
 #pragma makr - MBGuideHUDDeledate
 static int i = -1;

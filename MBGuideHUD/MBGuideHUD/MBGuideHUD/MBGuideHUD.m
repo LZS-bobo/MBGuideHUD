@@ -58,6 +58,11 @@
     return [self initWithFrame:view.bounds];
 }
 
+- (void)dealloc
+{
+    NSLog(@"MBGuideHUD 释放了");
+}
+
 #pragma mark - Show & hide
 - (void)show:(BOOL)animated
 {
@@ -153,10 +158,28 @@
         self.clickBlock();
     }
 }
+#pragma mark - Other
+- (void)changeVisibleViewFrame
+{
+    CGRect visibleRect = CGRectZero;
+    CGRect visibleFrame = self.visibleView.frame;
+    //坐标系转换
+    CGRect frame = [_visibleView.superview convertRect:visibleFrame toView:self];
+    if (self.style == MBGuideHUDBackgroundStyleBlur) {
+        
+        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin - self.lineWidth, frame.origin.y + self.edgeInsets.top - self.margin - self.lineWidth, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin + 2 * self.lineWidth, frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin + 2 * self.lineWidth);
+        
+    } else {
+        
+        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin, frame.origin.y + self.edgeInsets.top - self.margin, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin , frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin);
+    }
+    _lightFrame = visibleRect;
+}
 #pragma mark - Properties
 - (void)setVisibleView:(UIView *)visibleView
 {
     _visibleView = visibleView;
+    [self changeVisibleViewFrame];
     [self setNeedsDisplay];
 }
 
@@ -164,39 +187,54 @@
 {
     _style = style;
     [self updateForBackgroundStyle];
+    [self changeVisibleViewFrame];
     [self setNeedsLayout];
 }
 
 - (void)setAlpha:(CGFloat)alpha
 {
     _alpha = alpha;
-    self.backgroundView.alpha = alpha;
+
+    UIView *view = nil;
+    if (![self.backgroundView isKindOfClass:[UIToolbar class]]) {
+        view = [self.backgroundView viewWithString:@"_UIVisualEffectBackdropView"];
+        if (view) {
+            view.alpha = alpha;
+        }
+    } else {
+        self.backgroundView.alpha = alpha;
+    }
 }
 
 - (void)setOval:(BOOL)oval
 {
     _oval = oval;
+    [self changeVisibleViewFrame];
     [self setNeedsDisplay];
 }
 
 - (void)setMargin:(CGFloat)margin
 {
     _margin = margin;
+    [self changeVisibleViewFrame];
     [self setNeedsDisplay];
 }
 - (void)setEdgeInsets:(UIEdgeInsets)edgeInsets
 {
     _edgeInsets = edgeInsets;
+    [self changeVisibleViewFrame];
     [self setNeedsDisplay];
 }
 - (void)setCornerRadius:(CGFloat)cornerRadius
 {
     _cornerRadius = cornerRadius;
+    [self changeVisibleViewFrame];
     [self setNeedsDisplay];
 }
 - (void)setLineWidth:(CGFloat)lineWidth
 {
     _lineWidth = lineWidth;
+    [self changeVisibleViewFrame];
     [self setNeedsDisplay];
 }
 - (void)setLineColor:(UIColor *)lineColor
@@ -225,12 +263,13 @@
             boolbar.barStyle = UIBarStyleBlack;
         }
     }
+    [self changeVisibleViewFrame];
 }
 
 - (void)setBlurColor:(UIColor *)blurColor
 {
     _blurColor = blurColor;
-    if (self.blurColor) { //自定义毛玻璃样式
+    if (self.blurColor) { //自定义毛玻璃样式_UIVisualEffectBackdropView
         UIView *view = nil;
         if (![self.backgroundView isKindOfClass:[UIToolbar class]]) {
             view = [self.backgroundView viewWithString:@"_UIVisualEffectFilterView"];
@@ -259,28 +298,13 @@
     [super drawRect:rect];
     
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
-    //透明区域
-    CGRect visibleRect = CGRectZero;
-    CGRect visibleFrame = self.visibleView.frame;
-    //坐标系转换
-    CGRect frame = [_visibleView.superview convertRect:visibleFrame toView:self];
-    
-    if (self.style == MBGuideHUDBackgroundStyleBlur) {
-        
-        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin - self.lineWidth, frame.origin.y + self.edgeInsets.top - self.margin - self.lineWidth, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin + 2 * self.lineWidth, frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin + 2 * self.lineWidth);
-        
-    } else {
-        
-        visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin, frame.origin.y + self.edgeInsets.top - self.margin, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin , frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin);
-    }
-    
     UIBezierPath *clearPath = nil;
     if (self.isOval) { //椭圆
-        self.lightPath = [UIBezierPath bezierPathWithOvalInRect:visibleRect];
+        self.lightPath = [UIBezierPath bezierPathWithOvalInRect:_lightFrame];
         //取反
         clearPath = [self.lightPath bezierPathByReversingPath];
     } else { //矩形
-        self.lightPath = [UIBezierPath bezierPathWithRoundedRect:visibleRect cornerRadius:self.cornerRadius];
+        self.lightPath = [UIBezierPath bezierPathWithRoundedRect:_lightFrame cornerRadius:self.cornerRadius];
         //取反
         clearPath = [self.lightPath bezierPathByReversingPath];
     }
@@ -291,8 +315,6 @@
     [self.lineColor set];
     [self.lightPath stroke];
     
-    //解决：根据不同情况计算出不同的  visibleRect
-
     if (self.style == MBGuideHUDBackgroundStyleBlur) {
         self.backgroundView.layer.mask = self.shapeLayer;
     } else {
@@ -300,6 +322,7 @@
     }
     self.shapeLayer.path = path.CGPath;
     
+   
     
 }
 

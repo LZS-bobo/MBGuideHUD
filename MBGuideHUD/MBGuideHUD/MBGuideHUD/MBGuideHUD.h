@@ -60,7 +60,8 @@ typedef void (^MBGuideHUDClickBlock)();
 @property (nonatomic, strong) UIColor *blurColor;
 ///透明度
 @property (nonatomic, assign) CGFloat alpha;
-
+///高亮区域的frame
+@property (nonatomic, assign, readonly) CGRect lightFrame;
 //自定义UI
 - (void)prepare;
 + (instancetype)showHUDAddedTo:(UIView *)view visibleView:(UIView *)visibleView animated:(BOOL)animated;
