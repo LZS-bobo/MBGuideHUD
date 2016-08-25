@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8704004D1D6EE0750081C8AB /* Snip20160825_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8704004C1D6EE0750081C8AB /* Snip20160825_1.png */; };
+		8704004F1D6EE07E0081C8AB /* Snip20160825_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8704004E1D6EE07E0081C8AB /* Snip20160825_3.png */; };
 		877C9BFF1D6AEDDC00B7600B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9BFE1D6AEDDC00B7600B /* main.m */; };
 		877C9C021D6AEDDC00B7600B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C011D6AEDDC00B7600B /* AppDelegate.m */; };
 		877C9C051D6AEDDC00B7600B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C9C041D6AEDDC00B7600B /* ViewController.m */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8704004C1D6EE0750081C8AB /* Snip20160825_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Snip20160825_1.png; path = ../Snip20160825_1.png; sourceTree = "<group>"; };
+		8704004E1D6EE07E0081C8AB /* Snip20160825_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Snip20160825_3.png; path = ../Snip20160825_3.png; sourceTree = "<group>"; };
 		877C9BFA1D6AEDDC00B7600B /* MBGuideHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBGuideHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		877C9BFE1D6AEDDC00B7600B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		877C9C001D6AEDDC00B7600B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		877C9BFC1D6AEDDC00B7600B /* MBGuideHUD */ = {
 			isa = PBXGroup;
 			children = (
+				8704004E1D6EE07E0081C8AB /* Snip20160825_3.png */,
+				8704004C1D6EE0750081C8AB /* Snip20160825_1.png */,
 				877C9C281D6B09B900B7600B /* MBGuideHUDDeom */,
 				877C9C1E1D6AF33F00B7600B /* MBGuideHUD */,
 				877C9C001D6AEDDC00B7600B /* AppDelegate.h */,
@@ -189,6 +195,8 @@
 				877C9C0D1D6AEDDC00B7600B /* LaunchScreen.storyboard in Resources */,
 				877C9C0A1D6AEDDC00B7600B /* Assets.xcassets in Resources */,
 				877C9C081D6AEDDC00B7600B /* Main.storyboard in Resources */,
+				8704004D1D6EE0750081C8AB /* Snip20160825_1.png in Resources */,
+				8704004F1D6EE07E0081C8AB /* Snip20160825_3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
