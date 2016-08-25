@@ -249,14 +249,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ytk-yT-7WC">
                                 <rect key="frame" x="0.0" y="360" width="320" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bou-KW-DYe">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="bou-KW-DYe" secondAttribute="height" multiplier="1:1" id="iTJ-im-JNo"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
-                                        <state key="normal" title="Button" image="食物"/>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="這懸崖何時會倒下 難盛載" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlA-9o-2H5">
                                         <rect key="frame" x="73" y="8" width="239" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -269,6 +261,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bou-KW-DYe">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bou-KW-DYe" secondAttribute="height" multiplier="1:1" id="iTJ-im-JNo"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        <state key="normal" title="Button" image="食物"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5ME-38-8Dd" firstAttribute="top" secondItem="zlA-9o-2H5" secondAttribute="bottom" constant="2" id="2fr-Lu-iKV"/>
@@ -282,14 +282,38 @@
                                     <constraint firstItem="zlA-9o-2H5" firstAttribute="leading" secondItem="bou-KW-DYe" secondAttribute="trailing" constant="13" id="vfw-5T-vqR"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmz-eQ-1af">
+                                <rect key="frame" x="254" y="20" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="W1P-A9-JjR"/>
+                                    <constraint firstAttribute="width" secondItem="nmz-eQ-1af" secondAttribute="height" multiplier="1:1" id="bkb-Tf-UrM"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                <state key="normal" title="Button" image="kulou"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G8-eL-hHF">
+                                <rect key="frame" x="260" y="459" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4G8-eL-hHF" secondAttribute="height" multiplier="1:1" id="QZK-5K-x7t"/>
+                                    <constraint firstAttribute="width" constant="60" id="cnX-fZ-wOF"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                <state key="normal" title="Button" image="食物"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4G8-eL-hHF" secondAttribute="trailing" id="0wv-xQ-OTz"/>
                             <constraint firstItem="ANK-gN-j4h" firstAttribute="centerX" secondItem="HH0-OG-rtz" secondAttribute="centerX" id="1W2-Ib-e2L"/>
                             <constraint firstItem="MVu-H0-hy9" firstAttribute="leading" secondItem="HH0-OG-rtz" secondAttribute="leading" id="6Ov-yg-Y15"/>
                             <constraint firstItem="ANK-gN-j4h" firstAttribute="top" secondItem="ZkR-AX-DFz" secondAttribute="bottom" constant="50" id="C8I-EY-C5E"/>
+                            <constraint firstItem="nmz-eQ-1af" firstAttribute="top" secondItem="ZkR-AX-DFz" secondAttribute="bottom" id="FfK-m5-f5j"/>
                             <constraint firstItem="Ytk-yT-7WC" firstAttribute="leading" secondItem="HH0-OG-rtz" secondAttribute="leading" id="IUF-9E-Wrk"/>
                             <constraint firstItem="Ytk-yT-7WC" firstAttribute="top" secondItem="MVu-H0-hy9" secondAttribute="bottom" constant="8" id="MhV-tL-01N"/>
+                            <constraint firstAttribute="trailing" secondItem="nmz-eQ-1af" secondAttribute="trailing" constant="6" id="OI0-2O-kMG"/>
+                            <constraint firstItem="4cu-qZ-9fo" firstAttribute="top" secondItem="4G8-eL-hHF" secondAttribute="bottom" id="Ruu-uQ-gao"/>
+                            <constraint firstItem="4G8-eL-hHF" firstAttribute="width" secondItem="4G8-eL-hHF" secondAttribute="height" multiplier="1:1" id="TYT-s9-Zxl"/>
+                            <constraint firstItem="nmz-eQ-1af" firstAttribute="width" secondItem="nmz-eQ-1af" secondAttribute="height" multiplier="1:1" id="UcK-Az-zTG"/>
                             <constraint firstItem="MVu-H0-hy9" firstAttribute="top" secondItem="ANK-gN-j4h" secondAttribute="bottom" constant="100" id="gJJ-Bj-aIX"/>
                             <constraint firstAttribute="trailing" secondItem="Ytk-yT-7WC" secondAttribute="trailing" id="q1E-HS-47g"/>
                             <constraint firstAttribute="trailing" secondItem="MVu-H0-hy9" secondAttribute="trailing" id="v2l-Xg-efd"/>
@@ -299,6 +323,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="btn" destination="u7g-i7-xot" id="rQO-Ti-KXl"/>
+                        <outlet property="btn1" destination="nmz-eQ-1af" id="1IQ-WM-PnM"/>
+                        <outlet property="btn2" destination="bou-KW-DYe" id="hdT-ks-NSZ"/>
+                        <outlet property="btn3" destination="4G8-eL-hHF" id="27x-7h-DZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w87-iK-tEs" sceneMemberID="firstResponder"/>

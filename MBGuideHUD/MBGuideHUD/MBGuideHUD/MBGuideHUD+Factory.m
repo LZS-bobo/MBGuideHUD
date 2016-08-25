@@ -29,21 +29,53 @@
     hud.edgeInsets = UIEdgeInsetsMake(12, 12, 12, 12);
     hud.cornerRadius = visible.frame.size.width / 2.0;
     hud.alpha = 0.9;
-    
     hud.blurColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     
+    CGPoint first = CGPointZero;
+    CGPoint second = CGPointZero;
+    CGPoint third = CGPointZero;
+    CGPoint fourth = CGPointZero;
+    CGPoint fifth = CGPointZero;
+    CGPoint sixth = CGPointZero;
+    CGRect frame = CGRectZero;
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(hud.frame.size.width - GUIDEVIEW_LEFT_MARGIN * 2 - 80, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil];
+    CGFloat height = rect.size.height ;
+    height = height > 44 ? height + 16 : 60;
+    if (hud.lightCenter.y > hud.bounds.size.height / 2) { //上面
+        
+        first = CGPointMake(hud.lightFrame.origin.x - LEFT_MARGIN, hud.lightFrame.origin.y - BOTTOM_MARGIN + HEIGHT);
+        second = CGPointMake(hud.lightFrame.origin.x , hud.lightFrame.origin.y - BOTTOM_MARGIN);
+        third = CGPointMake(hud.lightFrame.origin.x + hud.lightFrame.size.width, hud.lightFrame.origin.y - BOTTOM_MARGIN);
+        fourth = CGPointMake(hud.lightFrame.origin.x + hud.lightFrame.size.width + LEFT_MARGIN, hud.lightFrame.origin.y - BOTTOM_MARGIN + HEIGHT);
+        fifth = CGPointMake(hud.lightCenter.x, hud.lightFrame.origin.y - BOTTOM_MARGIN);
+        sixth = CGPointMake(hud.lightCenter.x, hud.lightFrame.origin.y - BOTTOM_MARGIN - GUIDEVIEW_LEFT_MARGIN);
+        
+        frame = CGRectMake(GUIDEVIEW_LEFT_MARGIN, hud.lightFrame.origin.y - BOTTOM_MARGIN - LINE_HEIGHT - height, hud.frame.size.width - 2 * GUIDEVIEW_LEFT_MARGIN, height);
+        
+        
+    } else { //下面
+        
+        first = CGPointMake(hud.lightFrame.origin.x - LEFT_MARGIN, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN - HEIGHT);
+        second = CGPointMake(hud.lightFrame.origin.x , hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN);
+        third = CGPointMake(hud.lightFrame.origin.x + hud.lightFrame.size.width, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN);
+        fourth = CGPointMake(hud.lightFrame.origin.x + hud.lightFrame.size.width + LEFT_MARGIN, hud.lightFrame.origin.y + hud.lightFrame.size.height + BOTTOM_MARGIN - HEIGHT);
+        fifth = CGPointMake(hud.lightCenter.x, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN);
+        sixth = CGPointMake(hud.lightCenter.x, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN + GUIDEVIEW_LEFT_MARGIN);
+        frame = CGRectMake(GUIDEVIEW_LEFT_MARGIN, hud.lightFrame.origin.y + hud.lightFrame.size.height + BOTTOM_MARGIN + LINE_HEIGHT, hud.frame.size.width - 2 * GUIDEVIEW_LEFT_MARGIN, height);
+        
+    }
     
     UIBezierPath *path = [UIBezierPath bezierPath];
-    
-    [path moveToPoint:CGPointMake(hud.lightFrame.origin.x - LEFT_MARGIN, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN - HEIGHT)];
-    [path addLineToPoint:CGPointMake(hud.lightFrame.origin.x , hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN)];
-    [path addLineToPoint:CGPointMake(hud.lightFrame.origin.x + hud.lightFrame.size.width, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN)];
-    [path addLineToPoint:CGPointMake(hud.lightFrame.origin.x + hud.lightFrame.size.width + LEFT_MARGIN, hud.lightFrame.origin.y + hud.lightFrame.size.height + BOTTOM_MARGIN - HEIGHT)];
+    [path moveToPoint:first];
+    [path addLineToPoint:second];
+    [path addLineToPoint:third];
+    [path addLineToPoint:fourth];
     
     UIBezierPath *path2 = [UIBezierPath bezierPath];
-    [path2 moveToPoint:CGPointMake(visible.center.x, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN)];
-    [path2 addLineToPoint:CGPointMake(visible.center.x, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN + GUIDEVIEW_LEFT_MARGIN)];
+    [path2 moveToPoint:fifth];
+    [path2 addLineToPoint:sixth];
     
     [path appendPath:path2];
     
@@ -56,8 +88,9 @@
     [hud.layer addSublayer:layer];
     layer.path = path.CGPath;
     
+    
     MBGuideView *guideview = [MBGuideView viewFromXib];
-    guideview.frame = CGRectMake(GUIDEVIEW_LEFT_MARGIN, hud.lightFrame.origin.y+ hud.lightFrame.size.height + BOTTOM_MARGIN + LINE_HEIGHT, hud.frame.size.width - 2 * GUIDEVIEW_LEFT_MARGIN, 0);
+    guideview.frame = frame;
      __weak typeof(hud) weakHud = hud;
     [guideview setText:text];
     guideview.confirmBlock = ^{

@@ -11,13 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="122"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everyone gets a uniqune icon for every conversation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJy-Y8-uvR">
-                    <rect key="frame" x="12" y="8" width="309" height="106"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iq7-I9-MZ5">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iq7-I9-MZ5" userLabel="line">
                     <rect key="frame" x="329" y="8" width="1" height="106"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -36,19 +30,25 @@
                         <action selector="confirm:" destination="ofX-te-LZO" eventType="touchUpInside" id="ru5-8D-msf"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everyone gets a uniqune icon for every conversation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJy-Y8-uvR">
+                    <rect key="frame" x="12" y="40.5" width="309" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="FJy-Y8-uvR" firstAttribute="leading" secondItem="ofX-te-LZO" secondAttribute="leading" constant="12" id="0Md-4c-n2R"/>
                 <constraint firstAttribute="bottom" secondItem="FJy-Y8-uvR" secondAttribute="bottom" constant="8" id="5mt-ds-ZjO"/>
                 <constraint firstItem="iq7-I9-MZ5" firstAttribute="top" secondItem="ofX-te-LZO" secondAttribute="top" constant="8" id="85p-BD-iCY"/>
                 <constraint firstAttribute="bottom" secondItem="iq7-I9-MZ5" secondAttribute="bottom" constant="8" id="8qA-aw-Nlc"/>
-                <constraint firstItem="FJy-Y8-uvR" firstAttribute="top" secondItem="ofX-te-LZO" secondAttribute="top" constant="8" id="BEM-gV-mX2"/>
-                <constraint firstItem="FJy-Y8-uvR" firstAttribute="leading" secondItem="ofX-te-LZO" secondAttribute="leading" constant="12" id="CQz-X4-xg7"/>
                 <constraint firstItem="zru-98-6VO" firstAttribute="leading" secondItem="iq7-I9-MZ5" secondAttribute="trailing" constant="8" id="IUb-C3-UdE"/>
+                <constraint firstItem="FJy-Y8-uvR" firstAttribute="centerY" secondItem="ofX-te-LZO" secondAttribute="centerY" id="PYV-6X-wHx"/>
                 <constraint firstAttribute="bottom" secondItem="zru-98-6VO" secondAttribute="bottom" id="QEg-IB-ybL"/>
-                <constraint firstAttribute="bottom" secondItem="FJy-Y8-uvR" secondAttribute="bottom" constant="8" id="ZOb-hf-9LB"/>
+                <constraint firstItem="iq7-I9-MZ5" firstAttribute="leading" secondItem="FJy-Y8-uvR" secondAttribute="trailing" constant="8" id="UzL-YO-nME"/>
+                <constraint firstItem="FJy-Y8-uvR" firstAttribute="centerY" secondItem="ofX-te-LZO" secondAttribute="centerY" id="oJi-0j-gNp"/>
                 <constraint firstItem="zru-98-6VO" firstAttribute="top" secondItem="ofX-te-LZO" secondAttribute="top" id="omi-Vj-Edh"/>
-                <constraint firstItem="iq7-I9-MZ5" firstAttribute="leading" secondItem="FJy-Y8-uvR" secondAttribute="trailing" constant="8" id="tcb-zx-uGc"/>
                 <constraint firstAttribute="trailing" secondItem="zru-98-6VO" secondAttribute="trailing" constant="8" id="uSr-wm-bxL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -56,6 +56,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="5mt-ds-ZjO"/>
+                    <exclude reference="PYV-6X-wHx"/>
                 </mask>
             </variation>
             <connections>

@@ -84,6 +84,7 @@
         CGAffineTransform small = CGAffineTransformMakeScale(0.01f, 0.01f);
         [UIView animateWithDuration:0.25 delay:0.f usingSpringWithDamping:1.0f initialSpringVelocity:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.transform = small;
+            self.center = self.lightCenter;
         } completion:^(BOOL finished) {
             [self removeFromSuperview];
         }];
@@ -173,6 +174,7 @@
         
         visibleRect = CGRectMake(frame.origin.x + self.edgeInsets.left - self.margin, frame.origin.y + self.edgeInsets.top - self.margin, frame.size.width - 2 * self.edgeInsets.right + 2 * self.margin , frame.size.height - 2 * self.edgeInsets.bottom + 2 * self.margin);
     }
+    _lightCenter = CGPointMake(visibleRect.origin.x + (visibleRect.size.width / 2), visibleRect.origin.y + (visibleRect.size.height / 2));
     _lightFrame = visibleRect;
 }
 #pragma mark - Properties

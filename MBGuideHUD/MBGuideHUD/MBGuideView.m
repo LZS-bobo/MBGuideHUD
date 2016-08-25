@@ -28,20 +28,20 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    [self lzs_sizeToFit];
+//    [self lzs_sizeToFit];
     
 }
 - (void)lzs_sizeToFit
 {
-    CGRect rect = [self.title.text boundingRectWithSize:CGSizeMake(self.lzs_width, MAXFLOAT) options:NSStringDrawingUsesDeviceMetrics attributes:nil context:nil];
-    CGFloat height = rect.size.height + 16;
-    self.lzs_height = height > 60 ? height : 60;
+    CGRect rect = [self.title.text boundingRectWithSize:CGSizeMake(self.lzs_width - 80, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.title.font} context:nil];
+    CGFloat height = rect.size.height ;
+    self.lzs_height = height > 44 ? height + 16 : 60;
 }
 
 - (void)setText:(NSString *)text
 {
     self.title.text = text;
-    [self layoutSubviews];
+//    [self updateConstraints];
 }
 - (IBAction)confirm:(id)sender {
     if (self.confirmBlock) {

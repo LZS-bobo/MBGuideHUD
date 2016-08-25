@@ -62,6 +62,7 @@ typedef void (^MBGuideHUDClickBlock)();
 @property (nonatomic, assign) CGFloat alpha;
 ///高亮区域的frame
 @property (nonatomic, assign, readonly) CGRect lightFrame;
+@property (nonatomic, assign, readonly) CGPoint lightCenter;
 //自定义UI
 - (void)prepare;
 + (instancetype)showHUDAddedTo:(UIView *)view visibleView:(UIView *)visibleView animated:(BOOL)animated;
